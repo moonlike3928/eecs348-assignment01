@@ -65,7 +65,7 @@ int main() {
 - Correctness
     - Program compiles/runs with no edits
     - Does not gracefully handle edge cases:
-        - Text inputs are silently treated as integers
+        - Text inputs silently poison game logic since it fails to match
         - Numbers above/below maximum integer size over/underflow silently
 - Complexity
     - O(1) runtime complexity, maximum of three guesses.
@@ -127,11 +127,12 @@ int main() {
 - Correctness
     - Program did not compile intially- incorrect printf statement on line 20
     - Does gracefully handle some edge cases:
-        - Text inputs are rejected
+        - Text inputs are ignored
         - Numbers above/below maximum integer size over/underflow silently
+    - Game over message never prints due to attempt always being greater than attempts_allowed when the user loses
 - Complexity
     - O(1) runtime complexity, maximum of three guesses.
-    - Includes stdlib, using much more memory than the other LLM's program
+    - Includes stdlib, not strictly neccessary
     - Uses four declared variables
     - Uses a for loop instead of a while loop
 - Maintainability
