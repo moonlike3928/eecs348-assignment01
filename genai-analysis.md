@@ -5,7 +5,9 @@ This document contains the analysis of the two GenAI programs, as well as the on
 ## Access
 
 Access to these LLMs was through LM Studio, a locally-run application found at https://lmstudio.ai.
-All models used were downloaded and run for free using this application.
+All models used were downloaded and run for free using this application, using compute on my personal laptop.
+
+> Claude Sonnet 5 was used to proofread and verify my assessments of each model's code. Claude is available via Anthropic at https://claude.ai.
 
 ## Prompt
 
