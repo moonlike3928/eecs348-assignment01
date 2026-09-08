@@ -7,7 +7,7 @@ This document contains the analysis of the two GenAI programs, as well as the on
 Access to these LLMs was through LM Studio, a locally-run application found at https://lmstudio.ai.
 All models used were downloaded and run for free using this application, using compute on my personal laptop.
 
-> Claude Sonnet 5 was used to proofread and verify my assessments of each model's code. Claude is available via Anthropic at https://claude.ai.
+> Claude Sonnet 5 was used to proofread and verify my assessments of each model's code, as well as to improve input validation in the final program. Claude is available via Anthropic at https://claude.ai.
 
 ## Prompt
 
@@ -140,3 +140,12 @@ int main() {
     - Straightforward program flow 
     - well-named variables
     - Program exits unsuccessfully when a user gives an invalid input
+
+## Final Program and Conclusion
+
+The code from the Liquid model was chosen for the final program due to it compiling immediately and having fewer logic errors overall. The difference in memory and runtime complexity for these small programs was essentially none despite the different loops and number of declared variables, and the Liquid code was simply easier to work with.
+
+### Changes/Improvements
+
+- Added a check on scanf's return value so non-numeric input is rejected and re-prompted instead of silently corrupting the guess and wasting an attempt. This check was generated via Claude.
+
