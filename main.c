@@ -43,14 +43,14 @@ Revision date: Sept. 8, 2026
 Revisions: Added a line comment to every statement explaining its purpose
 (logic unchanged from the liquid.c LLM output). Added a check on scanf's
 return value so non-numeric input is rejected and re-prompted instead of
-silently corrupting the guess and wasting an attempt.
+silently corrupting the guess and wasting an attempt. Changed secret number from 5 to 7 for consistency with given example output.
 */
 
 
 #include <stdio.h> // Needed for printf/scanf
 
 int main() { // Entry point, begin main function
-    int secret = 5; // Fixed secret number between 1 and 10
+    int secret = 7; // Fixed secret number between 1 and 10
     int attempts = 0; // Number of guesses made so far
     int guess; // Stores the user's current guess
 
@@ -66,7 +66,7 @@ int main() { // Entry point, begin main function
             continue; // Re-prompt without counting this as one of the 3 attempts
         }
         // End Claude-generated code
-        
+
         if (guess < secret) { // Guess is below the secret number
             printf("Too low! Try again.\n"); // Tell the user to guess higher
         } else if (guess > secret) { // Guess is above the secret number
