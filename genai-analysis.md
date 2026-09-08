@@ -67,6 +67,7 @@ int main() {
     - Does not gracefully handle edge cases:
         - Text inputs silently poison game logic since it fails to match
         - Numbers above/below maximum integer size over/underflow silently
+    - Used a secret number inconsistent with given example output
 - Complexity
     - O(1) runtime complexity, maximum of three guesses.
     - Uses a while loop rather than a for loop
@@ -148,4 +149,6 @@ The code from the Liquid model was chosen for the final program due to it compil
 ### Changes/Improvements
 
 - Added a check on scanf's return value so non-numeric input is rejected and re-prompted instead of silently corrupting the guess and wasting an attempt. This check was generated via Claude.
+    - This slightly increased the runtime and memory complexity of the program, but had a generally small impact.
 
+- Changed the secret number from 5 to 7 for consistency with given example output
