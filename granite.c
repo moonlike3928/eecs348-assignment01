@@ -17,7 +17,7 @@ int main() {
             return EXIT_FAILURE;
         }
 
-        printf(); // Clear the line after number entry
+        printf(""); // Clear the line after number entry
         
         if (guess == secret) {
             printf("Correct! You win!\n");
