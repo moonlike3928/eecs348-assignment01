@@ -41,7 +41,9 @@ Author: David Joslin, KUID 3218103
 Created: Sept. 8, 2026
 Revision date: Sept. 8, 2026
 Revisions: Added a line comment to every statement explaining its purpose
-(logic unchanged from the liquid.c LLM output).
+(logic unchanged from the liquid.c LLM output). Added a check on scanf's
+return value so non-numeric input is rejected and re-prompted instead of
+silently corrupting the guess and wasting an attempt.
 */
 
 
@@ -55,8 +57,16 @@ int main() { // Entry point, begin main function
     printf("Guess a number between 1 and 10.\n"); // Prompt shown once before guessing begins
     while (attempts < 3) { // Allow up to 3 guesses total
         printf("Attempt %d/3. Enter your guess: ", attempts + 1); // Show current attempt number, starting at 1
-        scanf("%d", &guess); // Read the user's guess into guess
 
+        // Generated with Claude Sonnet 5
+        if (scanf("%d", &guess) != 1) { // scanf returns the number of values it successfully read; non-numeric input reads 0
+            int c; // Holds each discarded character while we clear the bad input
+            while ((c = getchar()) != '\n' && c != EOF); // Drain the rest of the invalid line so it isn't re-read as another guess
+            printf("Invalid input. Please enter a number.\n"); // Tell the user why nothing was checked
+            continue; // Re-prompt without counting this as one of the 3 attempts
+        }
+        // End Claude-generated code
+        
         if (guess < secret) { // Guess is below the secret number
             printf("Too low! Try again.\n"); // Tell the user to guess higher
         } else if (guess > secret) { // Guess is above the secret number
