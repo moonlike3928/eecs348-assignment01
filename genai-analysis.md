@@ -68,6 +68,7 @@ int main() {
 - Complexity
     - O(1) runtime complexity, maximum of three guesses.
     - Uses a while loop rather than a for loop
+    - Uses three declared variables
 - Maintainability
     - Only a single line comment, no prologue 
     - Straightforward program flow 
@@ -119,3 +120,20 @@ int main() {
     return EXIT_SUCCESS;
 }
 ```
+### Code Review
+
+- Correctness
+    - Program did not compile intially- incorrect printf statement on line 20
+    - Does gracefully handle some edge cases:
+        - Text inputs are rejected
+        - Numbers above/below maximum integer size over/underflow silently
+- Complexity
+    - O(1) runtime complexity, maximum of three guesses.
+    - Includes stdlib, using much more memory than the other LLM's program
+    - Uses four declared variables
+    - Uses a for loop instead of a while loop
+- Maintainability
+    - Few comments, no prologue
+    - Straightforward program flow 
+    - well-named variables
+    - Program exits unsuccessfully when a user gives an invalid input
